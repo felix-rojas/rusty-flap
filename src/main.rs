@@ -1,8 +1,8 @@
 use bracket_lib::prelude::*;
 
-const SCRREN_WIDTH: i32 = 800;
-const SCRREN_HEIGHT: i32 = 800;
-const FRAME_DURATION: i32 = 75.0;
+const SCRREN_WIDTH: i32 = 80;
+const SCRREN_HEIGHT: i32 = 50;
+const FRAME_DURATION: f32 = 75.0;
 
 struct Player {
     x: i32,
@@ -96,10 +96,10 @@ impl State {
         }
     }
 
-    fn play(&mut self, _ctx: &mut BTerm) {
-        ctx.cls_bg(GREY6);
+    fn play(&mut self, ctx: &mut BTerm) {
+        ctx.cls_bg(GREY);
         self.frame_time += ctx.frame_time_ms;
-        if self.frame_time > FRRAME_DURATION {
+        if self.frame_time > FRAME_DURATION {
             self.frame_time = 0.0;
             self.player.gravity_and_move();
         }
